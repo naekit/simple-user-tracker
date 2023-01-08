@@ -16,6 +16,7 @@ const UserForm = ({ addUser }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		addUser(userObj)
+		setUserObj({ name: "", age: "" })
 	}
 
 	return (
@@ -24,14 +25,24 @@ const UserForm = ({ addUser }) => {
 				<FormStyled>
 					<h2>UserTrckr</h2>
 					<label>Username</label>
-					<input onChange={handleChange} name="name" type="text" />
+					<input
+						value={userObj.name}
+						onChange={handleChange}
+						name="name"
+						type="text"
+					/>
 				</FormStyled>
 				<FormStyled>
 					<label>Age (Years)</label>
-					<input onChange={handleChange} name="age" type="number" />
+					<input
+						value={userObj.age}
+						onChange={handleChange}
+						name="age"
+						type="number"
+					/>
 				</FormStyled>
 				<FormStyled>
-					<button type="submit">add user</button>
+					<button type="submit">Add User</button>
 				</FormStyled>
 			</form>
 		</div>
